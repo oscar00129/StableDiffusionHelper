@@ -1,4 +1,174 @@
 html, *{
     margin: 0;
     padding: 0;
+
+    font-family: 'Source Sans Pro', 'ui-sans-serif', 'system-ui', sans-serif;
+    font-size: 14px;
+    color: #f3f4f6;
+    font-weight: 400;
+}
+
+html{
+    background-color: #0b0f19;
+}
+
+#app{
+    padding: 1rem;
+}
+
+h1{
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.labelWButton{
+    display: flex;
+    margin-bottom: .2rem;
+}
+
+.labelWButton > h3{
+    gap: 1rem;
+}
+
+.button{
+    border: none;
+    width: 2rem;
+    background-color: transparent;
+}
+
+.button:hover{
+    cursor: pointer;
+}
+
+.button:active{
+    background-color: #233154;
+}
+
+.textarea{
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    background-color: #1f2937;
+    border-color: #374151;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: .4rem;
+}
+
+hr{
+    margin-bottom: 1rem;
+}
+
+.box{
+    background-color: #1f293740;
+    padding: 1rem;
+    border-radius: 0.4rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+h4{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.file{
+    color: darkgrey;
+    margin-bottom: .4rem;
+}
+
+.img{
+    width: 100%;
+    border-radius: .4rem;
+}
+
+.url{
+    text-decoration: none;
+    display: block;
+}
+
+.url:hover{
+    cursor: pointer;
+}
+
+.url:active{
+    background-color: #233154;;
+}
+
+.labelWButton > input{
+    flex-grow: 1;
+    background-color: #1f2937;
+    border-color: #374151;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: .4rem;
+    padding: .4rem;
+}
+
+.textAreaWButton{
+    display: flex;
+}
+
+.textAreaWButton > textarea{
+    flex-grow: 1;
+    background-color: #1f2937;
+    border-color: #374151;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: .4rem;
+    padding: .4rem;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1147px) {
+    .container{
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .box{
+        width: 45%;
+    }
+
+    .img{
+        width: 40%;
+    }
+}
+
+@media screen and (min-width: 1148px) and (max-width: 1600px) {
+    .container{
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .box{
+        width: 30%;
+    }
+
+    .img{
+        width: 40%;
+    }
+}
+
+@media screen and (min-width: 1601px){
+    .container{
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .box{
+        width: 22%;
+    }
+
+    .img{
+        width: 60%;
+    }
 }

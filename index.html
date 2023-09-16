@@ -4,11 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="app">
         <header><h1>{{data.app_title}}</h1></header>
+        <div class="labelWButton">
+            <h3>{{data.positive_prompts_text}}</h3>
+            <button @click="copyToClipboard(data.positive_prompts)" class="button">{{data.copy_text}}</button>
+        </div>
+        <textarea class="textarea" v-model="data.positive_prompts" cols="30" rows="10"></textarea>
+
+        <div class="labelWButton">
+            <h3>{{data.negative_prompts_text}}</h3>
+            <button @click="copyToClipboard(data.negative_prompts)" class="button">{{data.copy_text}}</button>
+        </div>
+        <textarea class="textarea" v-model="data.negative_prompts" cols="30" rows="10"></textarea>
+        
+        <hr>
+        
+        <div class="container">
+            <div class="box" v-for="lora in data.lora_info">
+                <h4>{{lora.name}}</h5>
+                <p class="file">{{lora.file}}</p>
+                <img class="img" :src="lora.image" :alt="lora.name"/>
+                <a class="url" :href="lora.url">{{data.original_post_text}}</a>
+                <div class="labelWButton">
+                    <input type="text" v-model="lora.lora_tag">
+                    <button class="button" @click="copyToClipboard(lora.lora_tag)">{{data.copy_text}}</button>
+                </div>
+                <div class="textAreaWButton">
+                    <textarea v-model="lora.prompts" cols="30" rows="10"></textarea>
+                    <button class="button" @click="copyToClipboard(lora.prompts)">{{data.copy_text}}</button>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="javascript.js"></script>
