@@ -1,17 +1,23 @@
 {
     "app_title": "Stable Diffusion Helper",
+    "add_text": "Add Lora",
     "copy_text": "📄",
     "original_post_text": "Original Post 🔍",
     "positive_prompts_text": "Positive prompts:",
     "positive_prompts": "",
     "negative_prompts_text": "Negative prompts:",
     "negative_prompts": "(worst quality, low quality:1.4), (bad prompt:0.8), EasyNegative, ugly face, extra eyes, extra fingers, fewer fingers, extra leg, extra arm, bad quality, mutilation, long neck, mutation, deformed, bad proportions, extra limbs, cloned face, disfigured, gross proportions, malformed limbs, two head, text, watermark, ugly, morbid",
-    "lora_info": [{
-        "name": "Final Fantasy Logo",
-        "file": "FF_LoRA.safetensors",
-        "image": "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/a476b409-339d-418d-b9e7-ee005c4d043d/width=450/86ae1be4-274a-45bc-87aa-a4209ef72b63.jpeg",
-        "url": "https://civitai.com/models/95783/final-fantasy-logo",
-        "lora_tag": "<lora:FF_LoRA:1>",
-        "prompts": "fflogo, white background, simple coloring"
-    }]
+    "form_data": {
+        "name": "Name: ",
+        "file": "Filename: ",
+        "image_url": "Image Url: ",
+        "original_post": "Original Post Url: ",
+        "original_post_example": "Example: https://civitai.com/models/xxxxx/xxxxxxx",
+        "lora_tag": "Lora tag: ",
+        "lora_tag_example": "Example: <lora:LoraNameExample:1>",
+        "promts": "Prompts: ",
+        "promts_example": "Example: chibi, 1girl, sunset",
+        "buttonComplete": "Complete",
+        "buttonCancel": "Cancel"
+    }
 }

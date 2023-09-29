@@ -21,6 +21,27 @@ h1{
     font-weight: 800;
 }
 
+.btnAdd{
+    background-color: #f97316;
+    border-color: #f97316;
+    border-radius: .4rem;
+    border-style: solid;
+    border-width: 1px;
+    font-weight: 600;
+    font-size: 16px;
+    padding: .4rem 2rem .4rem 2rem;
+    margin-bottom: .2rem;
+    margin-right: .2rem;
+}
+
+.btnAdd:hover{
+    cursor: pointer;
+}
+
+.btnAdd:active{
+    background-color: #fb8a39;
+}
+
 .labelWButton{
     display: flex;
     margin-bottom: .2rem;
@@ -110,6 +131,7 @@ h4{
 
 .textAreaWButton{
     display: flex;
+    
 }
 
 .textAreaWButton > textarea{
@@ -120,6 +142,90 @@ h4{
     border-width: 1px;
     border-radius: .4rem;
     padding: .4rem;
+}
+
+.exitForm{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.form{
+    background-color: #111827;
+    margin: 5%;
+    padding: 5%;
+    border-radius: .4rem;
+}
+
+.labelWInput{
+    margin-bottom: .2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.labelWInput > input{
+    width: 84%;
+    padding: .4rem;
+    color: #0b0f19;
+}
+
+#txtPrompts{
+    width: 84.3%;
+    padding: .4rem;
+    color: #0b0f19;
+}
+
+.buttonWButton{
+    display: flex;
+    justify-content: space-between;
+    gap: .2rem;
+}
+
+.buttonWButton > button{
+    width: 100%;
+    border-radius: .4rem;
+    border-style: solid;
+    border-width: 1px;
+    font-weight: 600;
+    font-size: 16px;
+    padding-top: .4rem;
+    padding-bottom: .4rem;
+}
+
+.btnComplete{
+    background-color: #f97316;
+    border-color: #f97316;
+}
+
+.btnComplete:hover{
+    cursor: pointer;
+}
+
+.btnComplete:active{
+    background-color: #fb8a39;
+}
+
+.btnCancel{
+    background-color: #1f2937;
+    border-color: #1f2937;
+}
+
+.btnCancel:hover{
+    cursor: pointer;
+}
+
+.btnCancel:active{
+    background-color: #374151;
+}
+
+.hidden{
+    display: none;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1147px) {

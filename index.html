@@ -3,29 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Stable Diffusion Helper</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="app">
         <header><h1>{{data.app_title}}</h1></header>
+        
+        <button @click="isHidden = false" class="btnAdd">{{data.add_text}}</button>
+        <button class="btnAdd" @click="btnImportClick()">Import</button>
+        <button class="btnAdd" @click="btnExportClick()">Export</button>
+        <input type="file" ref="inputFile" accept=".json" @input="fileLoaded()" hidden>
+        
+        <hr>
+        
         <div class="labelWButton">
             <h3>{{data.positive_prompts_text}}</h3>
             <button @click="copyToClipboard(data.positive_prompts)" class="button">{{data.copy_text}}</button>
         </div>
-        <textarea class="textarea" v-model="data.positive_prompts" cols="30" rows="10"></textarea>
+        <textarea class="textarea" v-model="data.positive_prompts" cols="30" rows="5"></textarea>
 
         <div class="labelWButton">
             <h3>{{data.negative_prompts_text}}</h3>
             <button @click="copyToClipboard(data.negative_prompts)" class="button">{{data.copy_text}}</button>
         </div>
-        <textarea class="textarea" v-model="data.negative_prompts" cols="30" rows="10"></textarea>
+        <textarea class="textarea" v-model="data.negative_prompts" cols="30" rows="5"></textarea>
         
         <hr>
         
         <div class="container">
-            <div class="box" v-for="lora in data.lora_info">
-                <h4>{{lora.name}}</h5>
+            <div class="box" v-for="lora in loras">
+                <h4>{{lora.name}}<button @click="openEdit(lora)" class="button">📝</button></h5>
                 <p class="file">{{lora.file}}</p>
                 <img class="img" :src="lora.image" :alt="lora.name"/>
                 <a class="url" :href="lora.url">{{data.original_post_text}}</a>
@@ -34,11 +42,46 @@
                     <button class="button" @click="copyToClipboard(lora.lora_tag)">{{data.copy_text}}</button>
                 </div>
                 <div class="textAreaWButton">
-                    <textarea v-model="lora.prompts" cols="30" rows="10"></textarea>
+                    <textarea v-model="lora.prompts" cols="30" rows="5"></textarea>
                     <button class="button" @click="copyToClipboard(lora.prompts)">{{data.copy_text}}</button>
                 </div>
             </div>
         </div>
+
+        <div class="exitForm" v-bind:class="{ hidden: isHidden }">
+            <div class="form">
+                <div class="labelWInput">
+                    <label for="txtName">{{ form.name }}</label>
+                    <input type="text" name="txtName" id="txtName" v-model="form.txtName">
+                </div>
+                <div class="labelWInput">
+                    <label for="txtFile">{{ form.file }}</label>
+                    <input type="text" name="txtFile" id="txtFile" v-model="form.txtFile">
+                </div>
+                <div class="labelWInput">
+                    <label for="txtImage">{{ form.image_url }}</label>
+                    <input type="text" name="txtImage" id="txtImage" v-model="form.txtImage">
+                </div>
+                <div class="labelWInput">
+                    <label for="txtPost">{{ form.original_post }}</label>
+                    <input type="text" name="txtPost" id="txtPost" :placeholder="form.original_post_example" v-model="form.txtPost">
+                </div>
+                <div class="labelWInput">
+                    <label for="txtLoraTag">{{ form.lora_tag }}</label>
+                    <input type="text" name="txtLoraTag" id="txtLoraTag" :placeholder="form.lora_tag_example" v-model="form.txtLoraTag">
+                </div>
+                <div class="labelWInput">
+                    <label for="txtPrompts">{{ form.promts }}</label>
+                    <!--<input type="text" name="txtPrompts" id="txtPrompts" :placeholder="form.promts_example" v-model="form.txtPrompts">-->
+                    <textarea name="txtPrompts" id="txtPrompts" cols="1" rows="5" :placeholder="form.promts_example" v-model="form.txtPrompts"></textarea>
+                </div>
+                <div class="buttonWButton">
+                    <button class="btnComplete" @click="complete()">{{ form.buttonComplete }}</button>
+                    <button class="btnCancel" @click="isHidden = true; this.clearForm();">{{ form.buttonCancel }}</button>
+                </div>
+            </div>
+        </div>
+        
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="javascript.js"></script>
